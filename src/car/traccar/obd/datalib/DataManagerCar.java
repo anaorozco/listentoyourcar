@@ -9,10 +9,10 @@ import java.sql.SQLException;
 import java.util.Date;
 import javax.sql.DataSource;
 import org.traccar.Config;
-import org.traccar.carhola.model.Driver;
+import car.traccar.obd.Driver;
 import car.traccar.obd.Obd;
-import org.traccar.carhola.model.Trip;
-import org.traccar.carhola.model.Vehicle;
+import car.traccar.obd.Trip;
+import car.traccar.obd.Vehicle;
 import org.traccar.database.QueryBuilder;
 import org.traccar.helper.Log;
 
