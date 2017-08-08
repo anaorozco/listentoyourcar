@@ -15,6 +15,7 @@
  */
 package org.traccar.database;
 
+import car.traccar.obd.datalib.ContextCar;
 import java.beans.Introspector;
 import java.io.File;
 import java.lang.reflect.Method;
@@ -74,11 +75,15 @@ public class DataManager {
 
     private boolean generateQueries;
 
+    private ContextCar contextCar;
+
     public DataManager(Config config) throws Exception {
         this.config = config;
 
         initDatabase();
         initDatabaseSchema();
+
+        contextCar = new ContextCar(this.config, dataSource);
     }
 
     public DataSource getDataSource() {
@@ -325,6 +330,7 @@ public class DataManager {
                 .setObject(position)
                 .setDate("serverTime", new Date())
                 .executeUpdate());
+        contextCar.decodeToObd(position);
     }
 
     public void updateLatestPosition(Position position) throws SQLException {

@@ -19,7 +19,7 @@ import org.traccar.helper.Log;
 
 /**
  *
- * @author phndavid
+ * @author Nelson David Padilla H.
  */
 public class DataManagerCar {
 
