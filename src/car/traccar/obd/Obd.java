@@ -10,7 +10,7 @@ import org.traccar.model.Message;
 
 /**
  *
- * @author phndavid
+ * @author Nelson David Padilla H.
  */
 public class Obd extends Message {
 

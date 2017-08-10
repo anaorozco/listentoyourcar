@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+  logicalFilePath="changelog-3.17">
+
+  <changeSet author="author" id="changelog-3.17">
+    <preConditions onFail="MARK_RAN">
+        <not>
+          <tableExists tableName="obd" />
+        </not>
+    </preConditions>
+    <createTable tableName="obd">
+        <column name="id" type="INT" autoIncrement="true">
+          <constraints primaryKey="true" />
+        </column>      
+        <column name="deviceid" type="int">
+          <constraints nullable="false" />
+        </column>
+        <column name="servertime" type="TIMESTAMP">
+          <constraints nullable="false" />
+        </column>
+        <column name="devicetime" type="TIMESTAMP">
+          <constraints nullable="false" />
+        </column>
+        <column name="fixtime" type="TIMESTAMP">
+          <constraints nullable="false" />
+        </column>
+        <column name="valid" type="BOOLEAN">
+          <constraints nullable="false" />
+        </column>
+        <column name="latitude" type="DOUBLE">
+          <constraints nullable="false" />
+        </column>
+        <column name="longitude" type="DOUBLE">
+          <constraints nullable="false" />
+        </column>
+        <column name="altitude" type="FLOAT">
+          <constraints nullable="false" />
+        </column>
+        <column name="speed" type="FLOAT">
+          <constraints nullable="false" />
+        </column>
+        <column name="hdop" type="DOUBLE"></column>
+        <column name="ignition" type="BOOLEAN"></column>
+        <column name="status" type="DOUBLE"></column>
+        <column name="odometer" type="DOUBLE"></column>
+        <column name="adc0" type="DOUBLE"></column>
+        <column name="adc1" type="DOUBLE"></column>
+        <column name="adc2" type="DOUBLE"></column>
+        <column name="adc3" type="DOUBLE"></column>
+        <column name="geofenceIn" type="DOUBLE"></column>
+        <column name="geofenceAlarm" type="DOUBLE"></column>
+        <column name="coolantTemperature" type="DOUBLE"></column>
+        <column name="rpm" type="DOUBLE"></column>
+        <column name="obdSpeed" type="DOUBLE"></column>
+        <column name="fuelConsumption" type="DOUBLE"></column>
+        <column name="vin" type="VARCHAR(512)"></column>
+        <column name="event" type="DOUBLE"></column>
+        <column name="ip" type="VARCHAR(512)"></column>
+        <column name="distance" type="DOUBLE"></column>
+        <column name="totalDistance" type="DOUBLE"></column>
+        <column name="course" type="FLOAT"></column>            
+      </createTable>
+      <addForeignKeyConstraint baseTableName="obd" baseColumnNames="deviceid" constraintName="fk_obd_deviceid" referencedTableName="devices" referencedColumnNames="id" onDelete="CASCADE" />
+  </changeSet>    
+</databaseChangeLog>

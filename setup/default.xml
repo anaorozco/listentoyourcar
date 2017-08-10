@@ -86,6 +86,13 @@
         SELECT * FROM statistics WHERE captureTime BETWEEN :from AND :to ORDER BY captureTime
     </entry>
 
+    <!-- TABLES CARHOLA -->
+
+     <entry key='database.insertObd'>
+        INSERT INTO obd (deviceId, serverTime, deviceTime, fixTime, valid, latitude, longitude, altitude, speed, hdop, ignition, status, odometer, adc0, adc1, adc2, adc3, geofenceIn, geofenceAlarm, coolantTemperature, rpm, obdSpeed, fuelConsumption, vin, event, ip, distance, totalDistance, course)
+        VALUES (:deviceId, :now, :deviceTime, :fixTime, :valid, :latitude, :longitude, :altitude, :speed, :hdop, :ignition, :status, :odometer, :adc0, :adc1, :adc2, :adc3, :geofenceIn, :geofenceAlarm, :coolantTemperature, :rpm, :obdSpeed, :fuelConsumption, :vin, :event, :ip, :distance, :totalDistance, :course)
+    </entry>
+
     <!-- PROTOCOL CONFIG -->
 
     <entry key='gps103.port'>5001</entry>
